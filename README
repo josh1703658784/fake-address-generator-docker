@@ -1,0 +1,6 @@
+
+See original project here: https://github.com/muratulashozturk/fake-address-generator
+
+Wraps original project in express.js + Docker with Tailscale support for an easy way to generate info without loading a browser.
+
+Apple Shortcuts integration: https://www.icloud.com/shortcuts/1431a97d5ccc48138a8523e4b17f6201

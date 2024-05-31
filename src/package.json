@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "fake-address-generator": "^2.0.0"
+  }
+}
