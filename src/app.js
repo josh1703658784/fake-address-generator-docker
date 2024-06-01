@@ -5,13 +5,11 @@ const fakeAddress = require("fake-address-generator");
 (function(){
   const app = express();
   const port = 3000;
-  const params = {
-    country: "us",
-    sex: null,
-  };
+  const params = {country: "us", sex: 0, state: 0, city: 0, zip: 0 }; // hardcode country, randomize others
+  const states = ["AK", "DE", "MT", "NH", "OR"]; // hardcode state options
 
   app.get('/', (req, res) => {
-    params.sex = Math.floor(Math.random()*100) % 2 ? "Female" : "Male";
+    params.state = states[Math.floor(Math.random() * states.length)];
     fakeAddress.Generate(params, (err, resp) => {
       if(err) throw new Error('BROKEN');
       res.send(resp);

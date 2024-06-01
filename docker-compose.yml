@@ -1,18 +1,24 @@
 ---
 services:
 
-  fake-data-generator:
+  person-generator:
     image: ghcr.io/josh1703658784/fake-address-generator-docker:sha-eaaf8ba
     volumes:
-      - fake-data-generator-tailscale:/var/lib/tailscale
+      - person-generator-tailscale:/var/lib/tailscale
     environment:
       - S6_READ_ONLY_ROOT=1
-      - TAILSCALE_HOSTNAME=pii-generator
+      - TAILSCALE_HOSTNAME=person-generator
       - TAILSCALE_SERVE_PORT=3000
       - DOCKER_MODS=ghcr.io/tailscale-dev/docker-mod:main
       # - TAILSCALE_AUTHKEY=''
       - TAILSCALE_STATE_DIR=/var/lib/tailscale
       - TAILSCALE_SERVE_MODE=https
 
+  # person-generator-local:
+  #   build:
+  #     context: .
+  #   ports:
+  #     - 3000:3000
+
 volumes:
-  fake-data-generator-tailscale:
+  person-generator-tailscale:
